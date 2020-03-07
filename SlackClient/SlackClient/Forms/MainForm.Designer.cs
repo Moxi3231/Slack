@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.loginPasssword = new System.Windows.Forms.TextBox();
+            this.loginEmail = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -43,40 +50,40 @@
             this.registerPassword = new System.Windows.Forms.TextBox();
             this.registerEmail = new System.Windows.Forms.TextBox();
             this.registerName = new System.Windows.Forms.TextBox();
-            this.loginEmail = new System.Windows.Forms.TextBox();
-            this.loginPasssword = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.groupName = new System.Windows.Forms.Label();
+            this.newGroup = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button6 = new System.Windows.Forms.Button();
+            this.groupName = new System.Windows.Forms.Label();
+            this.newChannel = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.chatSend = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.listBox3 = new System.Windows.Forms.ListBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.newChannelDesc = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.newChannelisPulic = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,6 +100,70 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1130, 631);
             this.panel1.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(621, 340);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 45);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Register";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(370, 340);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 45);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Login";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("MS PGothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(364, 213);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(179, 25);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Enter Password";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("MS Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(365, 154);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 25);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Enter Email";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(484, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 60);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Login";
+            // 
+            // loginPasssword
+            // 
+            this.loginPasssword.Location = new System.Drawing.Point(592, 220);
+            this.loginPasssword.Name = "loginPasssword";
+            this.loginPasssword.Size = new System.Drawing.Size(258, 22);
+            this.loginPasssword.TabIndex = 1;
+            // 
+            // loginEmail
+            // 
+            this.loginEmail.Location = new System.Drawing.Point(592, 161);
+            this.loginEmail.Name = "loginEmail";
+            this.loginEmail.Size = new System.Drawing.Size(258, 22);
+            this.loginEmail.TabIndex = 0;
             // 
             // panel2
             // 
@@ -234,76 +305,12 @@
             this.registerName.Size = new System.Drawing.Size(291, 30);
             this.registerName.TabIndex = 0;
             // 
-            // loginEmail
-            // 
-            this.loginEmail.Location = new System.Drawing.Point(592, 161);
-            this.loginEmail.Name = "loginEmail";
-            this.loginEmail.Size = new System.Drawing.Size(258, 22);
-            this.loginEmail.TabIndex = 0;
-            // 
-            // loginPasssword
-            // 
-            this.loginPasssword.Location = new System.Drawing.Point(592, 220);
-            this.loginPasssword.Name = "loginPasssword";
-            this.loginPasssword.Size = new System.Drawing.Size(258, 22);
-            this.loginPasssword.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(484, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 60);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Login";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(365, 154);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 25);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Enter Email";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS PGothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(364, 213);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(179, 25);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Enter Password";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(370, 340);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 45);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(621, 340);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 45);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Register";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.tabControl1);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1180, 641);
+            this.panel3.Size = new System.Drawing.Size(1193, 652);
             this.panel3.TabIndex = 7;
             // 
             // tabControl1
@@ -314,38 +321,50 @@
             this.tabControl1.Location = new System.Drawing.Point(16, 14);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1149, 613);
+            this.tabControl1.Size = new System.Drawing.Size(1174, 635);
             this.tabControl1.TabIndex = 1;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.button6);
-            this.tabPage2.Controls.Add(this.groupName);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.listBox2);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1141, 584);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Channels";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.listBox1);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.newGroup);
             this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1141, 584);
+            this.tabPage1.Size = new System.Drawing.Size(1166, 606);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Groups";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(83, 31);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(232, 32);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Enter New Group";
+            // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 31;
+            this.listBox1.Location = new System.Drawing.Point(37, 104);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(1088, 469);
+            this.listBox1.TabIndex = 2;
+            // 
+            // newGroup
+            // 
+            this.newGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newGroup.Location = new System.Drawing.Point(339, 31);
+            this.newGroup.Name = "newGroup";
+            this.newGroup.Size = new System.Drawing.Size(214, 30);
+            this.newGroup.TabIndex = 1;
             // 
             // button5
             // 
@@ -355,44 +374,63 @@
             this.button5.TabIndex = 0;
             this.button5.Text = "Add Group";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
-            // textBox1
+            // tabPage2
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(339, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(214, 30);
-            this.textBox1.TabIndex = 1;
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.newChannelDesc);
+            this.tabPage2.Controls.Add(this.label16);
+            this.tabPage2.Controls.Add(this.newChannelisPulic);
+            this.tabPage2.Controls.Add(this.button6);
+            this.tabPage2.Controls.Add(this.groupName);
+            this.tabPage2.Controls.Add(this.newChannel);
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Controls.Add(this.listBox2);
+            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1166, 606);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Channels";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // button6
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 31;
-            this.listBox1.Location = new System.Drawing.Point(37, 104);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(1069, 438);
-            this.listBox1.Sorted = true;
-            this.listBox1.TabIndex = 2;
+            this.button6.Location = new System.Drawing.Point(870, 65);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(110, 27);
+            this.button6.TabIndex = 6;
+            this.button6.Text = "Add Channel";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // comboBox1
+            // groupName
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(158, 62);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(251, 24);
-            this.comboBox1.Sorted = true;
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.groupName.AutoSize = true;
+            this.groupName.Location = new System.Drawing.Point(766, 70);
+            this.groupName.Name = "groupName";
+            this.groupName.Size = new System.Drawing.Size(61, 17);
+            this.groupName.TabIndex = 5;
+            this.groupName.Text = "to group";
             // 
-            // listBox2
+            // newChannel
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(36, 166);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(1071, 388);
-            this.listBox2.TabIndex = 1;
+            this.newChannel.Location = new System.Drawing.Point(572, 65);
+            this.newChannel.Name = "newChannel";
+            this.newChannel.Size = new System.Drawing.Size(158, 22);
+            this.newChannel.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(452, 18);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(37, 17);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Add ";
             // 
             // label10
             // 
@@ -403,42 +441,29 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Select Group";
             // 
-            // label11
+            // listBox2
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(443, 64);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 17);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Add ";
+            this.listBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 31;
+            this.listBox2.Location = new System.Drawing.Point(36, 166);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(1071, 376);
+            this.listBox2.TabIndex = 1;
             // 
-            // textBox2
+            // comboBox1
             // 
-            this.textBox2.Location = new System.Drawing.Point(488, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(158, 22);
-            this.textBox2.TabIndex = 4;
-            // 
-            // groupName
-            // 
-            this.groupName.AutoSize = true;
-            this.groupName.Location = new System.Drawing.Point(669, 69);
-            this.groupName.Name = "groupName";
-            this.groupName.Size = new System.Drawing.Size(61, 17);
-            this.groupName.TabIndex = 5;
-            this.groupName.Text = "to group";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(751, 65);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(110, 27);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Add Channel";
-            this.button6.UseVisualStyleBackColor = true;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(158, 62);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(251, 24);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.chatSend);
+            this.tabPage3.Controls.Add(this.textBox3);
             this.tabPage3.Controls.Add(this.listBox3);
             this.tabPage3.Controls.Add(this.label14);
             this.tabPage3.Controls.Add(this.comboBox3);
@@ -448,44 +473,36 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1141, 584);
+            this.tabPage3.Size = new System.Drawing.Size(1166, 606);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Chats";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label12
+            // chatSend
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(47, 43);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(91, 17);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Select Group";
+            this.chatSend.Location = new System.Drawing.Point(982, 558);
+            this.chatSend.Name = "chatSend";
+            this.chatSend.Size = new System.Drawing.Size(108, 38);
+            this.chatSend.TabIndex = 7;
+            this.chatSend.Text = "Send";
+            this.chatSend.UseVisualStyleBackColor = true;
             // 
-            // label13
+            // textBox3
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(380, 50);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(103, 17);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "Select Channel";
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(50, 566);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(908, 28);
+            this.textBox3.TabIndex = 6;
             // 
-            // comboBox2
+            // listBox3
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(160, 43);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 2;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(525, 43);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 24);
-            this.comboBox3.TabIndex = 3;
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 16;
+            this.listBox3.Location = new System.Drawing.Point(50, 100);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(1040, 452);
+            this.listBox3.TabIndex = 5;
             // 
             // label14
             // 
@@ -496,14 +513,74 @@
             this.label14.TabIndex = 4;
             this.label14.Text = "Nothing Is Selected";
             // 
-            // listBox3
+            // comboBox3
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 16;
-            this.listBox3.Location = new System.Drawing.Point(50, 100);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(1040, 452);
-            this.listBox3.TabIndex = 5;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(525, 43);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 24);
+            this.comboBox3.TabIndex = 3;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(160, 43);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.TabIndex = 2;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(380, 50);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(103, 17);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Select Channel";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(47, 43);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(91, 17);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Select Group";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(452, 68);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(101, 17);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Channel Name";
+            // 
+            // newChannelDesc
+            // 
+            this.newChannelDesc.Location = new System.Drawing.Point(654, 104);
+            this.newChannelDesc.Name = "newChannelDesc";
+            this.newChannelDesc.Size = new System.Drawing.Size(326, 22);
+            this.newChannelDesc.TabIndex = 9;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(567, 105);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(79, 17);
+            this.label17.TabIndex = 10;
+            this.label17.Text = "Description";
+            // 
+            // newChannelisPulic
+            // 
+            this.newChannelisPulic.AutoSize = true;
+            this.newChannelisPulic.Location = new System.Drawing.Point(455, 104);
+            this.newChannelisPulic.Name = "newChannelisPulic";
+            this.newChannelisPulic.Size = new System.Drawing.Size(78, 21);
+            this.newChannelisPulic.TabIndex = 7;
+            this.newChannelisPulic.Text = "isPublic";
+            this.newChannelisPulic.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -527,10 +604,10 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -567,11 +644,11 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox newGroup;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label groupName;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox newChannel;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox listBox2;
@@ -582,5 +659,12 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button chatSend;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox newChannelDesc;
+        private System.Windows.Forms.CheckBox newChannelisPulic;
     }
 }

@@ -25,6 +25,36 @@
   <wsdl:message name="ISlackService_CheckUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckUserResponse" />
   </wsdl:message>
+  <wsdl:message name="ISlackService_AddGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroup" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_AddGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_AddChannel_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddChannel" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_AddChannel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddChannelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_AddMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_AddMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_GetUGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUGroups" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_GetUGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_GetUChannels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUChannels" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_GetUChannels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUChannelsResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISlackService">
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/DoWork" message="tns:ISlackService_DoWork_InputMessage" />
@@ -37,6 +67,26 @@
     <wsdl:operation name="CheckUser">
       <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/CheckUser" message="tns:ISlackService_CheckUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISlackService/CheckUserResponse" message="tns:ISlackService_CheckUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/AddGroup" message="tns:ISlackService_AddGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlackService/AddGroupResponse" message="tns:ISlackService_AddGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddChannel">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/AddChannel" message="tns:ISlackService_AddChannel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlackService/AddChannelResponse" message="tns:ISlackService_AddChannel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/AddMessage" message="tns:ISlackService_AddMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlackService/AddMessageResponse" message="tns:ISlackService_AddMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/GetUGroups" message="tns:ISlackService_GetUGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlackService/GetUGroupsResponse" message="tns:ISlackService_GetUGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUChannels">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/GetUChannels" message="tns:ISlackService_GetUChannels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlackService/GetUChannelsResponse" message="tns:ISlackService_GetUChannels_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISlackService" type="tns:ISlackService">
@@ -61,6 +111,51 @@
     </wsdl:operation>
     <wsdl:operation name="CheckUser">
       <soap:operation soapAction="http://tempuri.org/ISlackService/CheckUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <soap:operation soapAction="http://tempuri.org/ISlackService/AddGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddChannel">
+      <soap:operation soapAction="http://tempuri.org/ISlackService/AddChannel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMessage">
+      <soap:operation soapAction="http://tempuri.org/ISlackService/AddMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUGroups">
+      <soap:operation soapAction="http://tempuri.org/ISlackService/GetUGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUChannels">
+      <soap:operation soapAction="http://tempuri.org/ISlackService/GetUChannels" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -11,6 +11,10 @@ namespace SlackService.Model
 {
     public class User
     {
+        public User()
+        {
+            groups = new List<UGroup>();
+        }
         [Key]
         public int Id { get; set; }
         [Required]
@@ -23,26 +27,36 @@ namespace SlackService.Model
         public string Profession { get; set; }
 
         public string status { get; set; }
-        public IEnumerable<UGroup> groups { get; set; }
+        
+        public ICollection<UGroup> groups { get; set; }
 
     }
     public class UGroup
     {
+        public UGroup() 
+        {
+            users = new List<User>();
+            channels = new List<UChannels>();
+        }
         [Key]
         public int Id { get; set; }
         [Required]
         public DateTime dateTime { get; set; }
         [Required]
         public string GroupName { get; set; }
-        public IEnumerable<User> adminUser { get; set; }
-        public IEnumerable<User> users { get; set; }
-        public IEnumerable<UChannels> channels { get; set; }
+        
+        public ICollection<User> users { get; set; }
+        public ICollection<UChannels> channels { get; set; }
 
-        [Required]
-        public DateTime creationTime { get; set; }
+        //[Required]
+        //public DateTime creationTime { get; set; }
     }
     public class UChannels
     {
+        public UChannels()
+        {
+            messages = new List<UMessage>();
+        }
         [Key]
         public int Id { get; set; }
         [Required]
@@ -56,7 +70,7 @@ namespace SlackService.Model
         [Required]
         public bool isPublic { get; set; }
         
-        public IEnumerable<UMessage> messages { get; set; }
+        public ICollection<UMessage> messages { get; set; }
 
     }
     public class UMessage

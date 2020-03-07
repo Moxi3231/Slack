@@ -18,5 +18,15 @@ namespace SlackService
         bool RegisterUser(User usr);
         [OperationContract]
         bool CheckUser(User usr);
+        [OperationContract]
+        bool AddGroup(UGroup uGroup,User user);
+        [OperationContract]
+        bool AddChannel(UChannels uChannels,UGroup ugroup,User user);
+        [OperationContract]
+        bool AddMessage(UMessage message);
+        [OperationContract]
+        IEnumerable<UGroup> GetUGroups(User u);
+        [OperationContract]
+        IEnumerable<UChannels> GetUChannels(UGroup g, User u);
     }
 }

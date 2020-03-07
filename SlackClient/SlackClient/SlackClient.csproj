@@ -49,16 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\GlobalClass.cs" />
     <Compile Include="Connected Services\SlackService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -88,6 +83,12 @@
     </None>
     <None Include="Connected Services\SlackService\item2.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SlackService\SlackClient.SlackService.UChannels.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SlackService\SlackClient.SlackService.UGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SlackService\SlackService.wsdl" />
     <None Include="Properties\Settings.settings">

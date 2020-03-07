@@ -39,4 +39,78 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="uGroup" nillable="true" type="q3:UGroup" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="user" nillable="true" type="q4:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddGroupResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddChannel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="uChannels" nillable="true" type="q5:UChannels" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="ugroup" nillable="true" type="q6:UGroup" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="user" nillable="true" type="q7:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddChannelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddChannelResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="message" nillable="true" type="q8:UMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddMessageResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="u" nillable="true" type="q9:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="GetUGroupsResult" nillable="true" type="q10:ArrayOfUGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUChannels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="g" nillable="true" type="q11:UGroup" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="u" nillable="true" type="q12:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUChannelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="GetUChannelsResult" nillable="true" type="q13:ArrayOfUChannels" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

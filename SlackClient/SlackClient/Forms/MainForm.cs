@@ -8,11 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SlackClient.SlackService;
+using SlackClient.Classes;
 namespace SlackClient.Forms
 {
     public partial class MainForm : Form
     {
         private SlackServiceClient slackService = new SlackServiceClient();
+        private User currentUser { get; set; }
+        private UChannels currentChannel { get; set; }
+        private UGroup currentGroup { get; set; }
+        private UGroup[] uGroups;
+        private UChannels[] uChannels { set; get; }
+        private GlobalClass globalClass = GlobalClass.getGlobalClassInstance();
         public MainForm()
         {
             InitializeComponent();
@@ -32,9 +39,9 @@ namespace SlackClient.Forms
                 panel3.Show();
                 panel1.Hide();
                 panel2.Hide();
-                //this.Close();
+                currentUser = user;
+                globalClass.user = user;
                 getGroups();
-               
             }
             else
             {
@@ -44,11 +51,21 @@ namespace SlackClient.Forms
         
         private void getGroups()
         {
-            for(int i=0;i<10;i++)
+            if (currentUser == null)
+                return;
+            uGroups = slackService.GetUGroups(currentUser);
+            //getGroups();
+            listBox1.Items.Clear();
+            comboBox1.Items.Clear();
+            foreach (UGroup ug in uGroups)
             {
-                listBox1.Items.Add("Item" + i.ToString());
-                comboBox1.Items.Add("Item" + i.ToString());
+                //Console.WriteLine(ug.GroupName);
+                //var temp = new Label() { Text = ug.GroupName, Name = ug.Id.ToString() };
+                listBox1.Items.Add(ug.GroupName);
+                comboBox1.Items.Add(ug.GroupName);
+                //Console.WriteLine("{0}{1}", temp, temp.Text);
             }
+            
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -74,6 +91,10 @@ namespace SlackClient.Forms
             if(st)
             {
                 panel3.Show();
+                currentUser = user;
+                globalClass.user = user;
+
+                getGroups();
             }
             else
             {
@@ -102,8 +123,72 @@ namespace SlackClient.Forms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(comboBox1.SelectedIndex.ToString());
+            if (comboBox1.SelectedIndex==-1 || comboBox1.SelectedIndex > uGroups.Length)
+                return;
+            currentGroup = uGroups[comboBox1.SelectedIndex];
             groupName.Text = "to " + comboBox1.SelectedItem.ToString();
+            updateChannel();
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            //Add group currently logged in user
+            if(newGroup.Text==null)
+            {
+                MessageBox.Show("Group must have name");
+                return;
+            }
+            bool st = slackService.AddGroup(new UGroup()
+            {
+                dateTime = DateTime.Now,
+                GroupName = newGroup.Text
+            },currentUser);
+            Console.WriteLine(st+"\n\n\n");
+        }
+        private void updateChannel()
+        {
+            if (currentGroup == null || currentUser == null)
+                return;
+            listBox2.Items.Clear();
+            try
+            {
+                uChannels = slackService.GetUChannels(currentGroup, currentUser);
+                foreach (UChannels ch in uChannels)
+                {
+                    listBox2.Items.Add(ch.ChannelName);
+                }
+            }
+            catch(Exception e)
+            {
+
+            }
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //Adding New Channel
+            if(currentGroup==null)
+            {
+                MessageBox.Show("Please Select Group From DropDown!!\nIf not then create");
+                return;
+            }
+            if(newChannel==null)
+            {
+                MessageBox.Show("Missing Channel Name");
+                return;
+            }
+            bool st = slackService.AddChannel(new UChannels()
+            {
+                ChannelName = newChannel.Text,
+                dateTime = DateTime.Now,
+                isPublic = newChannelisPulic.Checked,
+                purpose = newChannelDesc.Text
+            }, currentGroup, currentUser);
+            updateChannel();
+            if(!st)
+            {
+                MessageBox.Show("Some Error Occurred");
+                return;
+            }
         }
     }
 }

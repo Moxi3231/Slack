@@ -22,20 +22,12 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="adminUser" nillable="true" type="tns:ArrayOfUser" />
       <xs:element minOccurs="0" name="channels" nillable="true" type="tns:ArrayOfUChannels" />
-      <xs:element minOccurs="0" name="creationTime" type="xs:dateTime" />
       <xs:element minOccurs="0" name="dateTime" type="xs:dateTime" />
       <xs:element minOccurs="0" name="users" nillable="true" type="tns:ArrayOfUser" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UGroup" nillable="true" type="tns:UGroup" />
-  <xs:complexType name="ArrayOfUser">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
   <xs:complexType name="ArrayOfUChannels">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="UChannels" nillable="true" type="tns:UChannels" />
@@ -70,4 +62,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UMessage" nillable="true" type="tns:UMessage" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
 </xs:schema>

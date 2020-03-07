@@ -1,9 +1,9 @@
 D:\Projects\Slack\SlackClient\SlackClient\bin\Debug\SlackClient.exe.config
 D:\Projects\Slack\SlackClient\SlackClient\bin\Debug\SlackClient.exe
 D:\Projects\Slack\SlackClient\SlackClient\bin\Debug\SlackClient.pdb
-D:\Projects\Slack\SlackClient\SlackClient\obj\Debug\SlackClient.csprojAssemblyReference.cache
 D:\Projects\Slack\SlackClient\SlackClient\obj\Debug\SlackClient.Forms.MainForm.resources
 D:\Projects\Slack\SlackClient\SlackClient\obj\Debug\SlackClient.Properties.Resources.resources
 D:\Projects\Slack\SlackClient\SlackClient\obj\Debug\SlackClient.csproj.GenerateResource.cache
 D:\Projects\Slack\SlackClient\SlackClient\obj\Debug\SlackClient.exe
 D:\Projects\Slack\SlackClient\SlackClient\obj\Debug\SlackClient.pdb
+D:\Projects\Slack\SlackClient\SlackClient\obj\Debug\SlackClient.csprojAssemblyReference.cache

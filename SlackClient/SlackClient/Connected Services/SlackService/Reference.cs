@@ -170,13 +170,7 @@ namespace SlackClient.SlackService {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SlackClient.SlackService.User[] adminUserField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private SlackClient.SlackService.UChannels[] channelsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime creationTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime dateTimeField;
@@ -221,19 +215,6 @@ namespace SlackClient.SlackService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SlackClient.SlackService.User[] adminUser {
-            get {
-                return this.adminUserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.adminUserField, value) != true)) {
-                    this.adminUserField = value;
-                    this.RaisePropertyChanged("adminUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public SlackClient.SlackService.UChannels[] channels {
             get {
                 return this.channelsField;
@@ -242,19 +223,6 @@ namespace SlackClient.SlackService {
                 if ((object.ReferenceEquals(this.channelsField, value) != true)) {
                     this.channelsField = value;
                     this.RaisePropertyChanged("channels");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime creationTime {
-            get {
-                return this.creationTimeField;
-            }
-            set {
-                if ((this.creationTimeField.Equals(value) != true)) {
-                    this.creationTimeField = value;
-                    this.RaisePropertyChanged("creationTime");
                 }
             }
         }
@@ -566,6 +534,36 @@ namespace SlackClient.SlackService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/CheckUser", ReplyAction="http://tempuri.org/ISlackService/CheckUserResponse")]
         System.Threading.Tasks.Task<bool> CheckUserAsync(SlackClient.SlackService.User usr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/AddGroup", ReplyAction="http://tempuri.org/ISlackService/AddGroupResponse")]
+        bool AddGroup(SlackClient.SlackService.UGroup uGroup, SlackClient.SlackService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/AddGroup", ReplyAction="http://tempuri.org/ISlackService/AddGroupResponse")]
+        System.Threading.Tasks.Task<bool> AddGroupAsync(SlackClient.SlackService.UGroup uGroup, SlackClient.SlackService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/AddChannel", ReplyAction="http://tempuri.org/ISlackService/AddChannelResponse")]
+        bool AddChannel(SlackClient.SlackService.UChannels uChannels, SlackClient.SlackService.UGroup ugroup, SlackClient.SlackService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/AddChannel", ReplyAction="http://tempuri.org/ISlackService/AddChannelResponse")]
+        System.Threading.Tasks.Task<bool> AddChannelAsync(SlackClient.SlackService.UChannels uChannels, SlackClient.SlackService.UGroup ugroup, SlackClient.SlackService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/AddMessage", ReplyAction="http://tempuri.org/ISlackService/AddMessageResponse")]
+        bool AddMessage(SlackClient.SlackService.UMessage message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/AddMessage", ReplyAction="http://tempuri.org/ISlackService/AddMessageResponse")]
+        System.Threading.Tasks.Task<bool> AddMessageAsync(SlackClient.SlackService.UMessage message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/GetUGroups", ReplyAction="http://tempuri.org/ISlackService/GetUGroupsResponse")]
+        SlackClient.SlackService.UGroup[] GetUGroups(SlackClient.SlackService.User u);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/GetUGroups", ReplyAction="http://tempuri.org/ISlackService/GetUGroupsResponse")]
+        System.Threading.Tasks.Task<SlackClient.SlackService.UGroup[]> GetUGroupsAsync(SlackClient.SlackService.User u);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/GetUChannels", ReplyAction="http://tempuri.org/ISlackService/GetUChannelsResponse")]
+        SlackClient.SlackService.UChannels[] GetUChannels(SlackClient.SlackService.UGroup g, SlackClient.SlackService.User u);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/GetUChannels", ReplyAction="http://tempuri.org/ISlackService/GetUChannelsResponse")]
+        System.Threading.Tasks.Task<SlackClient.SlackService.UChannels[]> GetUChannelsAsync(SlackClient.SlackService.UGroup g, SlackClient.SlackService.User u);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -617,6 +615,46 @@ namespace SlackClient.SlackService {
         
         public System.Threading.Tasks.Task<bool> CheckUserAsync(SlackClient.SlackService.User usr) {
             return base.Channel.CheckUserAsync(usr);
+        }
+        
+        public bool AddGroup(SlackClient.SlackService.UGroup uGroup, SlackClient.SlackService.User user) {
+            return base.Channel.AddGroup(uGroup, user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddGroupAsync(SlackClient.SlackService.UGroup uGroup, SlackClient.SlackService.User user) {
+            return base.Channel.AddGroupAsync(uGroup, user);
+        }
+        
+        public bool AddChannel(SlackClient.SlackService.UChannels uChannels, SlackClient.SlackService.UGroup ugroup, SlackClient.SlackService.User user) {
+            return base.Channel.AddChannel(uChannels, ugroup, user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddChannelAsync(SlackClient.SlackService.UChannels uChannels, SlackClient.SlackService.UGroup ugroup, SlackClient.SlackService.User user) {
+            return base.Channel.AddChannelAsync(uChannels, ugroup, user);
+        }
+        
+        public bool AddMessage(SlackClient.SlackService.UMessage message) {
+            return base.Channel.AddMessage(message);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddMessageAsync(SlackClient.SlackService.UMessage message) {
+            return base.Channel.AddMessageAsync(message);
+        }
+        
+        public SlackClient.SlackService.UGroup[] GetUGroups(SlackClient.SlackService.User u) {
+            return base.Channel.GetUGroups(u);
+        }
+        
+        public System.Threading.Tasks.Task<SlackClient.SlackService.UGroup[]> GetUGroupsAsync(SlackClient.SlackService.User u) {
+            return base.Channel.GetUGroupsAsync(u);
+        }
+        
+        public SlackClient.SlackService.UChannels[] GetUChannels(SlackClient.SlackService.UGroup g, SlackClient.SlackService.User u) {
+            return base.Channel.GetUChannels(g, u);
+        }
+        
+        public System.Threading.Tasks.Task<SlackClient.SlackService.UChannels[]> GetUChannelsAsync(SlackClient.SlackService.UGroup g, SlackClient.SlackService.User u) {
+            return base.Channel.GetUChannelsAsync(g, u);
         }
     }
 }
