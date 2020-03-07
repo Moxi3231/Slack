@@ -1,0 +1,15 @@
+D:\Projects\Slack\SlackService\SlackService\bin\Debug\SlackService.dll.config
+D:\Projects\Slack\SlackService\SlackService\bin\Debug\SlackService.dll
+D:\Projects\Slack\SlackService\SlackService\bin\Debug\SlackService.pdb
+D:\Projects\Slack\SlackService\SlackService\obj\Debug\SlackService.csprojAssemblyReference.cache
+D:\Projects\Slack\SlackService\SlackService\obj\Debug\SlackService.dll
+D:\Projects\Slack\SlackService\SlackService\obj\Debug\SlackService.pdb
+D:\Projects\Slack\SlackService\SlackService\bin\Debug\EntityFramework.dll
+D:\Projects\Slack\SlackService\SlackService\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Slack\SlackService\SlackService\bin\Debug\EntityFramework.xml
+D:\Projects\Slack\SlackService\SlackService\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Slack\SlackService\SlackService\obj\Debug\SlackService.csproj.CopyComplete
+D:\Projects\Slack\SlackService\SlackService\bin\Debug\App_Data\SlackDatabase.mdf
+D:\Projects\Slack\SlackService\SlackService\bin\Debug\App_Data\SlackDatabase_log.ldf
+D:\Projects\Slack\SlackService\SlackService\obj\Debug\SlackService.Migrations.Migration1.resources
+D:\Projects\Slack\SlackService\SlackService\obj\Debug\SlackService.csproj.GenerateResource.cache
