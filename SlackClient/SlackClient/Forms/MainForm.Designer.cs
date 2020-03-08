@@ -53,11 +53,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.removeGroupBtn = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.newGroup = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.removeChannelBtn = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.newChannelDesc = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -70,6 +72,8 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.channelDescriptionLabel = new System.Windows.Forms.Label();
+            this.chatPanel = new System.Windows.Forms.Panel();
             this.chatSend = new System.Windows.Forms.Button();
             this.newChatDescription = new System.Windows.Forms.TextBox();
             this.chatsLabel = new System.Windows.Forms.Label();
@@ -77,7 +81,6 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.chatPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -307,6 +310,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel3.Controls.Add(this.tabControl1);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -326,6 +330,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.tabPage1.Controls.Add(this.removeGroupBtn);
             this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.listBox1);
             this.tabPage1.Controls.Add(this.newGroup);
@@ -336,7 +342,15 @@
             this.tabPage1.Size = new System.Drawing.Size(1166, 606);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Groups";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // removeGroupBtn
+            // 
+            this.removeGroupBtn.Location = new System.Drawing.Point(772, 23);
+            this.removeGroupBtn.Name = "removeGroupBtn";
+            this.removeGroupBtn.Size = new System.Drawing.Size(353, 46);
+            this.removeGroupBtn.TabIndex = 4;
+            this.removeGroupBtn.Text = "Remove Group";
+            this.removeGroupBtn.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -357,6 +371,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(1088, 469);
             this.listBox1.TabIndex = 2;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // newGroup
             // 
@@ -378,6 +393,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.tabPage2.Controls.Add(this.removeChannelBtn);
             this.tabPage2.Controls.Add(this.label17);
             this.tabPage2.Controls.Add(this.newChannelDesc);
             this.tabPage2.Controls.Add(this.label16);
@@ -395,7 +412,15 @@
             this.tabPage2.Size = new System.Drawing.Size(1166, 606);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Channels";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // removeChannelBtn
+            // 
+            this.removeChannelBtn.Location = new System.Drawing.Point(40, 105);
+            this.removeChannelBtn.Name = "removeChannelBtn";
+            this.removeChannelBtn.Size = new System.Drawing.Size(369, 52);
+            this.removeChannelBtn.TabIndex = 11;
+            this.removeChannelBtn.Text = "Remove Channel From Group";
+            this.removeChannelBtn.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
@@ -486,6 +511,7 @@
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(1071, 376);
             this.listBox2.TabIndex = 1;
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // comboBox1
             // 
@@ -498,6 +524,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.tabPage3.Controls.Add(this.channelDescriptionLabel);
             this.tabPage3.Controls.Add(this.chatPanel);
             this.tabPage3.Controls.Add(this.chatSend);
             this.tabPage3.Controls.Add(this.newChatDescription);
@@ -512,10 +540,32 @@
             this.tabPage3.Size = new System.Drawing.Size(1166, 606);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Chats";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // channelDescriptionLabel
+            // 
+            this.channelDescriptionLabel.AutoSize = true;
+            this.channelDescriptionLabel.BackColor = System.Drawing.Color.LightGreen;
+            this.channelDescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.channelDescriptionLabel.Location = new System.Drawing.Point(54, 81);
+            this.channelDescriptionLabel.Name = "channelDescriptionLabel";
+            this.channelDescriptionLabel.Size = new System.Drawing.Size(224, 29);
+            this.channelDescriptionLabel.TabIndex = 9;
+            this.channelDescriptionLabel.Text = "Channel Decripition";
+            // 
+            // chatPanel
+            // 
+            this.chatPanel.AutoScroll = true;
+            this.chatPanel.AutoSize = true;
+            this.chatPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.chatPanel.Location = new System.Drawing.Point(50, 128);
+            this.chatPanel.Name = "chatPanel";
+            this.chatPanel.Size = new System.Drawing.Size(1065, 404);
+            this.chatPanel.TabIndex = 8;
             // 
             // chatSend
             // 
+            this.chatSend.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.chatSend.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.chatSend.Location = new System.Drawing.Point(982, 558);
             this.chatSend.Name = "chatSend";
             this.chatSend.Size = new System.Drawing.Size(133, 38);
@@ -526,10 +576,10 @@
             // 
             // newChatDescription
             // 
-            this.newChatDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newChatDescription.Location = new System.Drawing.Point(50, 566);
+            this.newChatDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newChatDescription.Location = new System.Drawing.Point(50, 558);
             this.newChatDescription.Name = "newChatDescription";
-            this.newChatDescription.Size = new System.Drawing.Size(908, 28);
+            this.newChatDescription.Size = new System.Drawing.Size(908, 36);
             this.newChatDescription.TabIndex = 6;
             // 
             // chatsLabel
@@ -545,9 +595,9 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(486, 43);
+            this.comboBox3.Location = new System.Drawing.Point(454, 43);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(160, 24);
+            this.comboBox3.Size = new System.Drawing.Size(192, 24);
             this.comboBox3.TabIndex = 3;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
@@ -556,7 +606,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(160, 43);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.Size = new System.Drawing.Size(179, 24);
             this.comboBox2.TabIndex = 2;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -577,15 +627,6 @@
             this.label12.Size = new System.Drawing.Size(91, 17);
             this.label12.TabIndex = 0;
             this.label12.Text = "Select Group";
-            // 
-            // chatPanel
-            // 
-            this.chatPanel.AutoScroll = true;
-            this.chatPanel.AutoSize = true;
-            this.chatPanel.Location = new System.Drawing.Point(50, 89);
-            this.chatPanel.Name = "chatPanel";
-            this.chatPanel.Size = new System.Drawing.Size(1065, 443);
-            this.chatPanel.TabIndex = 8;
             // 
             // MainForm
             // 
@@ -671,5 +712,8 @@
         private System.Windows.Forms.TextBox newChannelDesc;
         private System.Windows.Forms.CheckBox newChannelisPulic;
         private System.Windows.Forms.Panel chatPanel;
+        private System.Windows.Forms.Button removeGroupBtn;
+        private System.Windows.Forms.Button removeChannelBtn;
+        private System.Windows.Forms.Label channelDescriptionLabel;
     }
 }

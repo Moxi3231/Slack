@@ -179,7 +179,16 @@ namespace SlackService
             return temp;
             
         }
-
+        public bool AddUserToGroup(User user,UGroup group)
+        {
+            var us = getUser(user);
+            var gr = con.groups.Where(q => q.Id == group.Id).FirstOrDefault();
+            if (us == null || gr == null)
+                return false;
+            us.groups.Add(gr);
+            con.SaveChanges();
+            return true;
+        }
 
         private UGroup getFilteredGroup(UGroup u)
         {

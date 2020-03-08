@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SlackClient.SlackService;
 using SlackClient.Classes;
+using System.Threading;
+
 namespace SlackClient.Forms
 {
     public partial class MainForm : Form
@@ -28,6 +30,8 @@ namespace SlackClient.Forms
             panel1.Show();
             panel2.Hide();
             panel3.Hide();
+            panel3.BackColor = Color.FromArgb(21, 67, 96);
+            chatPanel.BackColor = Color.FromArgb(212, 230, 241);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -35,7 +39,8 @@ namespace SlackClient.Forms
             //MainLogin
             User user = new User() { Email = loginEmail.Text, Password = loginPasssword.Text };
             bool st = slackService.CheckUser(user);
-            if(st)
+            
+            if (st)
             {
                 panel3.Show();
                 panel1.Hide();
@@ -43,11 +48,14 @@ namespace SlackClient.Forms
                 currentUser = user;
                 globalClass.user = user;
                 getGroups();
+                return;
             }
             else
             {
                 MessageBox.Show("Please Enter Valid Credentials");
+                return;
             }
+           
         }
         
         private void getGroups()
@@ -221,6 +229,7 @@ namespace SlackClient.Forms
             }
             currentChannel = uChannels[comboBox3.SelectedIndex];
             chatsLabel.Text = "Group: " + currentGroup.GroupName + "\t Channel: " + currentChannel.ChannelName;
+            channelDescriptionLabel.Text = currentChannel.purpose;
             loadChats();
         }
         public void loadChats()
@@ -231,22 +240,26 @@ namespace SlackClient.Forms
             //t.Text = "First Message";
             Size sz = new Size(0,0);
             t.Size = sz;
-            sz.Width = 120;
-            sz.Height = 40;
+            sz.Width = 240;
+            sz.Height = 50;
+            chatPanel.Controls.Clear();
             chatPanel.Controls.Add(t);
 
             Point pInitial = t.Location;
             foreach(UMessage message in uMessages)
             {
                 Label temp = new Label();
+                temp.BackColor = Color.FromArgb(46, 134, 193);
+                
                 pInitial.Y += 60;
-               
+                temp.Height = 50;
+                temp.Width = 240;
                 if(message.user.Email == currentUser.Email)
                 {
-                    pInitial.X = pInitial.X - 120 + chatPanel.Width;
+                    pInitial.X = pInitial.X - 240 + chatPanel.Width;
                     temp.Location = pInitial;
-                    pInitial.X = pInitial.X + 120 - chatPanel.Width;
-                    temp.Text = message.MesssageDecription + "\n" + "~Me \nTime: " + message.dateTime;
+                    pInitial.X = pInitial.X + 240 - chatPanel.Width;
+                    temp.Text = string.Format(message.MesssageDecription + "\n~Me \nTime: " + message.dateTime);
                 }
                 else
                 {
@@ -287,6 +300,7 @@ namespace SlackClient.Forms
             if (newChatDescription.Text == null || currentChannel == null || currentUser == null || currentGroup == null)
             {
                 MessageBox.Show("Cannot Send Message\nPlease Select Group or Channel Or Both");
+                return;
             }
             bool st = slackService.AddMessage(new UMessage(){ 
                 dateTime =DateTime.Now,
@@ -298,6 +312,27 @@ namespace SlackClient.Forms
                 MessageBox.Show("Couldn't Send Message \nPlease Try Again Later");
                 return;
             }
+            loadChats();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == -1)
+                return;
+            if (listBox1.SelectedIndex > uGroups.Length)
+                return;
+            removeGroupBtn.Text = "Remove " + uGroups[listBox1.SelectedIndex].GroupName;
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (currentChannel == null)
+                return;
+            if (listBox2.SelectedIndex == -1)
+                return;
+            if (listBox2.SelectedIndex > uChannels.Length)
+                return;
+            removeChannelBtn.Text = "Remove " + currentChannel.ChannelName + " From Group: " + currentGroup.GroupName;
         }
     }
 }
