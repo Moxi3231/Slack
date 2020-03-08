@@ -19,6 +19,7 @@ namespace SlackClient.Forms
         private UGroup currentGroup { get; set; }
         private UGroup[] uGroups;
         private UChannels[] uChannels { set; get; }
+        private UMessage[] uMessages { get; set; }
         private GlobalClass globalClass = GlobalClass.getGlobalClassInstance();
         public MainForm()
         {
@@ -63,6 +64,7 @@ namespace SlackClient.Forms
                 //var temp = new Label() { Text = ug.GroupName, Name = ug.Id.ToString() };
                 listBox1.Items.Add(ug.GroupName);
                 comboBox1.Items.Add(ug.GroupName);
+                comboBox2.Items.Add(ug.GroupName);
                 //Console.WriteLine("{0}{1}", temp, temp.Text);
             }
             
@@ -125,6 +127,7 @@ namespace SlackClient.Forms
         {
             if (comboBox1.SelectedIndex==-1 || comboBox1.SelectedIndex > uGroups.Length)
                 return;
+            comboBox2.SelectedIndex = comboBox1.SelectedIndex;
             currentGroup = uGroups[comboBox1.SelectedIndex];
             groupName.Text = "to " + comboBox1.SelectedItem.ToString();
             updateChannel();
@@ -150,17 +153,19 @@ namespace SlackClient.Forms
             if (currentGroup == null || currentUser == null)
                 return;
             listBox2.Items.Clear();
+            comboBox3.Items.Clear();
             try
             {
                 uChannels = slackService.GetUChannels(currentGroup, currentUser);
                 foreach (UChannels ch in uChannels)
                 {
                     listBox2.Items.Add(ch.ChannelName);
+                    comboBox3.Items.Add(ch.ChannelName);
                 }
             }
             catch(Exception e)
             {
-
+                System.Console.WriteLine("Some Exception Occurred {0}", e);
             }
         }
         private void button6_Click(object sender, EventArgs e)
@@ -187,6 +192,110 @@ namespace SlackClient.Forms
             if(!st)
             {
                 MessageBox.Show("Some Error Occurred");
+                return;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //comboBox1_SelectedIndexChanged(sender,e);
+            if (comboBox2.SelectedIndex == -1 || comboBox2.SelectedIndex > uGroups.Length)
+                return;
+            comboBox1.SelectedIndex = comboBox2.SelectedIndex;
+            currentGroup = uGroups[comboBox2.SelectedIndex];
+            groupName.Text = "to " + comboBox1.SelectedItem.ToString();
+            updateChannel();
+            
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(currentGroup==null)
+            {
+                MessageBox.Show("Please Select Group");
+                return;
+            }
+            if(comboBox3.SelectedIndex==-1 || comboBox3.SelectedIndex>uChannels.Length)
+            {
+                return;
+            }
+            currentChannel = uChannels[comboBox3.SelectedIndex];
+            chatsLabel.Text = "Group: " + currentGroup.GroupName + "\t Channel: " + currentChannel.ChannelName;
+            loadChats();
+        }
+        public void loadChats()
+        {
+            uMessages = slackService.GetUMessages(currentChannel, currentUser);
+            
+            Label t = new Label();
+            //t.Text = "First Message";
+            Size sz = new Size(0,0);
+            t.Size = sz;
+            sz.Width = 120;
+            sz.Height = 40;
+            chatPanel.Controls.Add(t);
+
+            Point pInitial = t.Location;
+            foreach(UMessage message in uMessages)
+            {
+                Label temp = new Label();
+                pInitial.Y += 60;
+               
+                if(message.user.Email == currentUser.Email)
+                {
+                    pInitial.X = pInitial.X - 120 + chatPanel.Width;
+                    temp.Location = pInitial;
+                    pInitial.X = pInitial.X + 120 - chatPanel.Width;
+                    temp.Text = message.MesssageDecription + "\n" + "~Me \nTime: " + message.dateTime;
+                }
+                else
+                {
+                    temp.Location = pInitial;
+                    temp.Text = message.MesssageDecription + "\n" + "~By " + message.user.Name + " \nTime: " + message.dateTime;
+                }
+                chatPanel.Controls.Add(temp);
+            }
+            /*
+             * for(int i=1;i<100;i++)
+            {
+                Label temp = new Label();
+                
+                pInitial.Y += 60;
+                temp.Location = pInitial;
+                temp.Size = sz;
+                temp.Text = "\nMessage" + i.ToString();
+                if(i%10==0)
+                {
+                    pInitial.X = pInitial.X - 120 + chatPanel.Width;
+                    temp.Location = pInitial;
+                    pInitial.X = pInitial.X + 120 - chatPanel.Width;
+                }
+                chatPanel.Controls.Add(temp);   
+                
+            }
+            */
+            chatPanel.AutoSize = false;
+            //chatPanel.SetAutoScrollMargin(2, );
+            
+            chatPanel.Show();
+            
+            chatPanel.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void chatSend_Click(object sender, EventArgs e)
+        {
+            if (newChatDescription.Text == null || currentChannel == null || currentUser == null || currentGroup == null)
+            {
+                MessageBox.Show("Cannot Send Message\nPlease Select Group or Channel Or Both");
+            }
+            bool st = slackService.AddMessage(new UMessage(){ 
+                dateTime =DateTime.Now,
+                MesssageDecription=newChatDescription.Text,
+                user = currentUser
+            },currentChannel,currentUser);
+            if(!st)
+            {
+                MessageBox.Show("Couldn't Send Message \nPlease Try Again Later");
                 return;
             }
         }

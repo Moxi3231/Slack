@@ -141,7 +141,7 @@ namespace SlackService
                     return null;
                 var tG = con.users.Where(u => u.Id == UID).SelectMany(x => x.groups).Where(x => x.Id == groups.Id);
                 temp = tG.SelectMany(x => x.channels).ToList();
-                Console.WriteLine(temp.Count);
+                //Console.WriteLine(temp.Count);
             }
             catch(Exception e)
             {
@@ -149,11 +149,36 @@ namespace SlackService
             }
             return temp;
         }
-        public bool AddMessage(UMessage message)
+        public bool AddMessage(UMessage message,UChannels uChannels,User user)
         {
-            throw new NotImplementedException();
+            var temp = con.channels.Where(q => q.Id == uChannels.Id).FirstOrDefault();
+            if (temp == null)
+                return false;
+            var u = getUser(user);
+            if (u == null)
+                return false;
+            message.user = u;
+            temp.messages.Add(message);
+            con.SaveChanges();
+            return true;
+            //throw new NotImplementedException();
         }
-
+        public IEnumerable<UMessage> GetUMessages(UChannels channels) 
+        {
+            var temp = con.channels.Where(q => q.Id == channels.Id).SelectMany(x=>x.messages ).ToList();
+            var fin = new List<UMessage>();
+            foreach(UMessage uMessage in temp)
+            {
+                var chT = con.messages.Where(q => q.Id == uMessage.Id).Select(x=>x.user).FirstOrDefault();
+                
+                //Console.WriteLine(chT.Email);
+                uMessage.user = chT;
+                fin.Add(uMessage);
+            }
+            //Console.WriteLine(temp.Count);
+            return temp;
+            
+        }
 
 
         private UGroup getFilteredGroup(UGroup u)

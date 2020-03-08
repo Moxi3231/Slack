@@ -548,10 +548,10 @@ namespace SlackClient.SlackService {
         System.Threading.Tasks.Task<bool> AddChannelAsync(SlackClient.SlackService.UChannels uChannels, SlackClient.SlackService.UGroup ugroup, SlackClient.SlackService.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/AddMessage", ReplyAction="http://tempuri.org/ISlackService/AddMessageResponse")]
-        bool AddMessage(SlackClient.SlackService.UMessage message);
+        bool AddMessage(SlackClient.SlackService.UMessage message, SlackClient.SlackService.UChannels channels, SlackClient.SlackService.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/AddMessage", ReplyAction="http://tempuri.org/ISlackService/AddMessageResponse")]
-        System.Threading.Tasks.Task<bool> AddMessageAsync(SlackClient.SlackService.UMessage message);
+        System.Threading.Tasks.Task<bool> AddMessageAsync(SlackClient.SlackService.UMessage message, SlackClient.SlackService.UChannels channels, SlackClient.SlackService.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/GetUGroups", ReplyAction="http://tempuri.org/ISlackService/GetUGroupsResponse")]
         SlackClient.SlackService.UGroup[] GetUGroups(SlackClient.SlackService.User u);
@@ -564,6 +564,12 @@ namespace SlackClient.SlackService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/GetUChannels", ReplyAction="http://tempuri.org/ISlackService/GetUChannelsResponse")]
         System.Threading.Tasks.Task<SlackClient.SlackService.UChannels[]> GetUChannelsAsync(SlackClient.SlackService.UGroup g, SlackClient.SlackService.User u);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/GetUMessages", ReplyAction="http://tempuri.org/ISlackService/GetUMessagesResponse")]
+        SlackClient.SlackService.UMessage[] GetUMessages(SlackClient.SlackService.UChannels channels, SlackClient.SlackService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/GetUMessages", ReplyAction="http://tempuri.org/ISlackService/GetUMessagesResponse")]
+        System.Threading.Tasks.Task<SlackClient.SlackService.UMessage[]> GetUMessagesAsync(SlackClient.SlackService.UChannels channels, SlackClient.SlackService.User user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -633,12 +639,12 @@ namespace SlackClient.SlackService {
             return base.Channel.AddChannelAsync(uChannels, ugroup, user);
         }
         
-        public bool AddMessage(SlackClient.SlackService.UMessage message) {
-            return base.Channel.AddMessage(message);
+        public bool AddMessage(SlackClient.SlackService.UMessage message, SlackClient.SlackService.UChannels channels, SlackClient.SlackService.User user) {
+            return base.Channel.AddMessage(message, channels, user);
         }
         
-        public System.Threading.Tasks.Task<bool> AddMessageAsync(SlackClient.SlackService.UMessage message) {
-            return base.Channel.AddMessageAsync(message);
+        public System.Threading.Tasks.Task<bool> AddMessageAsync(SlackClient.SlackService.UMessage message, SlackClient.SlackService.UChannels channels, SlackClient.SlackService.User user) {
+            return base.Channel.AddMessageAsync(message, channels, user);
         }
         
         public SlackClient.SlackService.UGroup[] GetUGroups(SlackClient.SlackService.User u) {
@@ -655,6 +661,14 @@ namespace SlackClient.SlackService {
         
         public System.Threading.Tasks.Task<SlackClient.SlackService.UChannels[]> GetUChannelsAsync(SlackClient.SlackService.UGroup g, SlackClient.SlackService.User u) {
             return base.Channel.GetUChannelsAsync(g, u);
+        }
+        
+        public SlackClient.SlackService.UMessage[] GetUMessages(SlackClient.SlackService.UChannels channels, SlackClient.SlackService.User user) {
+            return base.Channel.GetUMessages(channels, user);
+        }
+        
+        public System.Threading.Tasks.Task<SlackClient.SlackService.UMessage[]> GetUMessagesAsync(SlackClient.SlackService.UChannels channels, SlackClient.SlackService.User user) {
+            return base.Channel.GetUMessagesAsync(channels, user);
         }
     }
 }

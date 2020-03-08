@@ -55,6 +55,12 @@
   <wsdl:message name="ISlackService_GetUChannels_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUChannelsResponse" />
   </wsdl:message>
+  <wsdl:message name="ISlackService_GetUMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUMessages" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_GetUMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUMessagesResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISlackService">
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/DoWork" message="tns:ISlackService_DoWork_InputMessage" />
@@ -87,6 +93,10 @@
     <wsdl:operation name="GetUChannels">
       <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/GetUChannels" message="tns:ISlackService_GetUChannels_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISlackService/GetUChannelsResponse" message="tns:ISlackService_GetUChannels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/GetUMessages" message="tns:ISlackService_GetUMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlackService/GetUMessagesResponse" message="tns:ISlackService_GetUMessages_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISlackService" type="tns:ISlackService">
@@ -156,6 +166,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUChannels">
       <soap:operation soapAction="http://tempuri.org/ISlackService/GetUChannels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUMessages">
+      <soap:operation soapAction="http://tempuri.org/ISlackService/GetUMessages" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

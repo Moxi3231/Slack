@@ -58,6 +58,10 @@
             this.newGroup = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.newChannelDesc = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.newChannelisPulic = new System.Windows.Forms.CheckBox();
             this.button6 = new System.Windows.Forms.Button();
             this.groupName = new System.Windows.Forms.Label();
             this.newChannel = new System.Windows.Forms.TextBox();
@@ -67,17 +71,13 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.chatSend = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.newChatDescription = new System.Windows.Forms.TextBox();
+            this.chatsLabel = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.newChannelDesc = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.newChannelisPulic = new System.Windows.Forms.CheckBox();
+            this.chatPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -397,6 +397,41 @@
             this.tabPage2.Text = "Channels";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(567, 105);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(79, 17);
+            this.label17.TabIndex = 10;
+            this.label17.Text = "Description";
+            // 
+            // newChannelDesc
+            // 
+            this.newChannelDesc.Location = new System.Drawing.Point(654, 104);
+            this.newChannelDesc.Name = "newChannelDesc";
+            this.newChannelDesc.Size = new System.Drawing.Size(326, 22);
+            this.newChannelDesc.TabIndex = 9;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(452, 68);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(101, 17);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Channel Name";
+            // 
+            // newChannelisPulic
+            // 
+            this.newChannelisPulic.AutoSize = true;
+            this.newChannelisPulic.Location = new System.Drawing.Point(455, 104);
+            this.newChannelisPulic.Name = "newChannelisPulic";
+            this.newChannelisPulic.Size = new System.Drawing.Size(78, 21);
+            this.newChannelisPulic.TabIndex = 7;
+            this.newChannelisPulic.Text = "isPublic";
+            this.newChannelisPulic.UseVisualStyleBackColor = true;
+            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(870, 65);
@@ -426,9 +461,10 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(452, 18);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 17);
+            this.label11.Size = new System.Drawing.Size(73, 32);
             this.label11.TabIndex = 3;
             this.label11.Text = "Add ";
             // 
@@ -462,10 +498,10 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.chatPanel);
             this.tabPage3.Controls.Add(this.chatSend);
-            this.tabPage3.Controls.Add(this.textBox3);
-            this.tabPage3.Controls.Add(this.listBox3);
-            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.newChatDescription);
+            this.tabPage3.Controls.Add(this.chatsLabel);
             this.tabPage3.Controls.Add(this.comboBox3);
             this.tabPage3.Controls.Add(this.comboBox2);
             this.tabPage3.Controls.Add(this.label13);
@@ -482,44 +518,38 @@
             // 
             this.chatSend.Location = new System.Drawing.Point(982, 558);
             this.chatSend.Name = "chatSend";
-            this.chatSend.Size = new System.Drawing.Size(108, 38);
+            this.chatSend.Size = new System.Drawing.Size(133, 38);
             this.chatSend.TabIndex = 7;
             this.chatSend.Text = "Send";
             this.chatSend.UseVisualStyleBackColor = true;
+            this.chatSend.Click += new System.EventHandler(this.chatSend_Click);
             // 
-            // textBox3
+            // newChatDescription
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(50, 566);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(908, 28);
-            this.textBox3.TabIndex = 6;
+            this.newChatDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newChatDescription.Location = new System.Drawing.Point(50, 566);
+            this.newChatDescription.Name = "newChatDescription";
+            this.newChatDescription.Size = new System.Drawing.Size(908, 28);
+            this.newChatDescription.TabIndex = 6;
             // 
-            // listBox3
+            // chatsLabel
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 16;
-            this.listBox3.Location = new System.Drawing.Point(50, 100);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(1040, 452);
-            this.listBox3.TabIndex = 5;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(774, 50);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(130, 17);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Nothing Is Selected";
+            this.chatsLabel.AutoSize = true;
+            this.chatsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chatsLabel.Location = new System.Drawing.Point(703, 43);
+            this.chatsLabel.Name = "chatsLabel";
+            this.chatsLabel.Size = new System.Drawing.Size(181, 25);
+            this.chatsLabel.TabIndex = 4;
+            this.chatsLabel.Text = "Nothing Is Selected";
             // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(525, 43);
+            this.comboBox3.Location = new System.Drawing.Point(486, 43);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 24);
+            this.comboBox3.Size = new System.Drawing.Size(160, 24);
             this.comboBox3.TabIndex = 3;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -528,11 +558,12 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 24);
             this.comboBox2.TabIndex = 2;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(380, 50);
+            this.label13.Location = new System.Drawing.Point(345, 46);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(103, 17);
             this.label13.TabIndex = 1;
@@ -547,40 +578,14 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Select Group";
             // 
-            // label16
+            // chatPanel
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(452, 68);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(101, 17);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "Channel Name";
-            // 
-            // newChannelDesc
-            // 
-            this.newChannelDesc.Location = new System.Drawing.Point(654, 104);
-            this.newChannelDesc.Name = "newChannelDesc";
-            this.newChannelDesc.Size = new System.Drawing.Size(326, 22);
-            this.newChannelDesc.TabIndex = 9;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(567, 105);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(79, 17);
-            this.label17.TabIndex = 10;
-            this.label17.Text = "Description";
-            // 
-            // newChannelisPulic
-            // 
-            this.newChannelisPulic.AutoSize = true;
-            this.newChannelisPulic.Location = new System.Drawing.Point(455, 104);
-            this.newChannelisPulic.Name = "newChannelisPulic";
-            this.newChannelisPulic.Size = new System.Drawing.Size(78, 21);
-            this.newChannelisPulic.TabIndex = 7;
-            this.newChannelisPulic.Text = "isPublic";
-            this.newChannelisPulic.UseVisualStyleBackColor = true;
+            this.chatPanel.AutoScroll = true;
+            this.chatPanel.AutoSize = true;
+            this.chatPanel.Location = new System.Drawing.Point(50, 89);
+            this.chatPanel.Name = "chatPanel";
+            this.chatPanel.Size = new System.Drawing.Size(1065, 443);
+            this.chatPanel.TabIndex = 8;
             // 
             // MainForm
             // 
@@ -653,18 +658,18 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label chatsLabel;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button chatSend;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox newChatDescription;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox newChannelDesc;
         private System.Windows.Forms.CheckBox newChannelisPulic;
+        private System.Windows.Forms.Panel chatPanel;
     }
 }

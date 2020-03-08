@@ -23,10 +23,12 @@ namespace SlackService
         [OperationContract]
         bool AddChannel(UChannels uChannels,UGroup ugroup,User user);
         [OperationContract]
-        bool AddMessage(UMessage message);
+        bool AddMessage(UMessage message,UChannels channels,User user);
         [OperationContract]
         IEnumerable<UGroup> GetUGroups(User u);
         [OperationContract]
         IEnumerable<UChannels> GetUChannels(UGroup g, User u);
+        [OperationContract]
+        IEnumerable<UMessage> GetUMessages(UChannels channels);
     }
 }
