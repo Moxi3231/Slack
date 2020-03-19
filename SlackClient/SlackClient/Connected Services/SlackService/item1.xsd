@@ -119,14 +119,57 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="channels" nillable="true" type="q16:UChannels" />
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="user" nillable="true" type="q17:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUMessagesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="GetUMessagesResult" nillable="true" type="q18:ArrayOfUMessage" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="GetUMessagesResult" nillable="true" type="q17:ArrayOfUMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUserToGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="user" nillable="true" type="q18:User" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="group" nillable="true" type="q19:UGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUserToGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddUserToGroupResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGroupMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="group" nillable="true" type="q20:UGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGroupMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="getGroupMemberResult" nillable="true" type="q21:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeUserFromGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="u" nillable="true" type="q22:User" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SlackService.Model" minOccurs="0" name="gr" nillable="true" type="q23:UGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeUserFromGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="removeUserFromGroupResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

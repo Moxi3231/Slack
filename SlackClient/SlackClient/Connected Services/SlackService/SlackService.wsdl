@@ -61,6 +61,24 @@
   <wsdl:message name="ISlackService_GetUMessages_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUMessagesResponse" />
   </wsdl:message>
+  <wsdl:message name="ISlackService_AddUserToGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserToGroup" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_AddUserToGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserToGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_getGroupMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:getGroupMember" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_getGroupMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getGroupMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_removeUserFromGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeUserFromGroup" />
+  </wsdl:message>
+  <wsdl:message name="ISlackService_removeUserFromGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeUserFromGroupResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISlackService">
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/DoWork" message="tns:ISlackService_DoWork_InputMessage" />
@@ -97,6 +115,18 @@
     <wsdl:operation name="GetUMessages">
       <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/GetUMessages" message="tns:ISlackService_GetUMessages_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISlackService/GetUMessagesResponse" message="tns:ISlackService_GetUMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/AddUserToGroup" message="tns:ISlackService_AddUserToGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlackService/AddUserToGroupResponse" message="tns:ISlackService_AddUserToGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getGroupMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/getGroupMember" message="tns:ISlackService_getGroupMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlackService/getGroupMemberResponse" message="tns:ISlackService_getGroupMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeUserFromGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlackService/removeUserFromGroup" message="tns:ISlackService_removeUserFromGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlackService/removeUserFromGroupResponse" message="tns:ISlackService_removeUserFromGroup_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISlackService" type="tns:ISlackService">
@@ -175,6 +205,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetUMessages">
       <soap:operation soapAction="http://tempuri.org/ISlackService/GetUMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToGroup">
+      <soap:operation soapAction="http://tempuri.org/ISlackService/AddUserToGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGroupMember">
+      <soap:operation soapAction="http://tempuri.org/ISlackService/getGroupMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeUserFromGroup">
+      <soap:operation soapAction="http://tempuri.org/ISlackService/removeUserFromGroup" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

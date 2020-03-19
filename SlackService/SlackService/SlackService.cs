@@ -78,6 +78,10 @@ namespace SlackService
         {
             return con.users.Where(q => q.Email == user.Email && q.Password == user.Password).FirstOrDefault();
         }
+        private User getUserWithoutPass(User user)
+        {
+            return con.users.Where(q => q.Email == user.Email).FirstOrDefault();
+        }
         private int getUserId(User user)
         {
             var temp = getUser(user);
@@ -181,7 +185,7 @@ namespace SlackService
         }
         public bool AddUserToGroup(User user,UGroup group)
         {
-            var us = getUser(user);
+            var us = getUserWithoutPass(user);
             var gr = con.groups.Where(q => q.Id == group.Id).FirstOrDefault();
             if (us == null || gr == null)
                 return false;
@@ -189,7 +193,29 @@ namespace SlackService
             con.SaveChanges();
             return true;
         }
+        public IEnumerable<User> getGroupMember(UGroup gr)
+        {
+            var group = con.groups.Where(p => p.Id == gr.Id).FirstOrDefault();
+            if (group == null)
+                return null;
+            var users = con.groups.Where(p => p.Id == group.Id).SelectMany(u => u.users).ToList();
+            return users;
+//            return null;
+        }
+        public bool removeUserFromGroup(User user,UGroup ugroup)
+        {
+            User utemp = getUserWithoutPass(user);
+            if (utemp == null)
+                return false;
+            UGroup ug = con.groups.Where(u => u.Id == ugroup.Id).FirstOrDefault();
+            if (ug == null)
+                return false;
+            var res = con.groups.Include("users").Where(u => u.Id == ug.Id).FirstOrDefault();
+            res.users.Remove(utemp);
 
+            con.SaveChanges();
+            return true;
+        }
         private UGroup getFilteredGroup(UGroup u)
         {
             UGroup fin = new UGroup() { dateTime = u.dateTime, GroupName = u.GroupName, Id = u.Id };

@@ -23,6 +23,7 @@ namespace SlackClient.Forms
         private UChannels[] uChannels { set; get; }
         private UMessage[] uMessages { get; set; }
         private GlobalClass globalClass = GlobalClass.getGlobalClassInstance();
+        private User[] currentGroupUsers;
         public MainForm()
         {
             InitializeComponent();
@@ -73,13 +74,14 @@ namespace SlackClient.Forms
                 listBox1.Items.Add(ug.GroupName);
                 comboBox1.Items.Add(ug.GroupName);
                 comboBox2.Items.Add(ug.GroupName);
+                comboBox4.Items.Add(ug.GroupName);
                 //Console.WriteLine("{0}{1}", temp, temp.Text);
             }
             
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -234,7 +236,7 @@ namespace SlackClient.Forms
         }
         public void loadChats()
         {
-            uMessages = slackService.GetUMessages(currentChannel, currentUser);
+            uMessages = slackService.GetUMessages(currentChannel);
             
             Label t = new Label();
             //t.Text = "First Message";
@@ -334,5 +336,66 @@ namespace SlackClient.Forms
                 return;
             removeChannelBtn.Text = "Remove " + currentChannel.ChannelName + " From Group: " + currentGroup.GroupName;
         }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label18.Text = "You Have Selected Group: " + uGroups[comboBox4.SelectedIndex].GroupName;
+            //button8.Text= "Remove "+ uGroups[comboBox4.SelectedIndex].GroupName + ""
+            updateListBOX3OFCURRENTGROUPUSER();
+        }
+        private void updateListBOX3OFCURRENTGROUPUSER()
+        {
+            currentGroupUsers = slackService.getGroupMember(uGroups[comboBox4.SelectedIndex]);
+            listBox3.Items.Clear();
+            foreach (User u in currentGroupUsers)
+            {
+                listBox3.Items.Add(u.Email);
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if(addMemberToGroup.Text==null)
+            {
+                MessageBox.Show("Please Enter Email");
+                return;
+            }
+            if(comboBox4.SelectedIndex==-1)
+            {
+                MessageBox.Show("Please Select a group");
+                return;
+            }
+            bool f = slackService.AddUserToGroup(new User() { Email = addMemberToGroup.Text }, uGroups[comboBox4.SelectedIndex]);
+            if(!f)
+            {
+                MessageBox.Show("Please Enter A Email");
+                return;
+            }
+            MessageBox.Show("User Added");
+            updateListBOX3OFCURRENTGROUPUSER();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (listBox3.SelectedIndex == -1 || comboBox4.SelectedIndex == -1)
+                return;
+            
+           // button8.Text = "Remove " + currentGroupUsers[listBox3.SelectedIndex] + "From Group " + uGroups[comboBox4.SelectedIndex];
+            bool f = slackService.removeUserFromGroup(currentGroupUsers[listBox3.SelectedIndex], uGroups[comboBox4.SelectedIndex]);
+            if (!f)
+            {
+                MessageBox.Show("Couldn't remove user.Please trye again later");
+                return;
+            }
+            MessageBox.Show("User Removed");
+            updateListBOX3OFCURRENTGROUPUSER();
+        }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox3.SelectedIndex == -1 || comboBox4.SelectedIndex == -1)
+                return;
+            button8.Text = "Remove " + currentGroupUsers[listBox3.SelectedIndex].Email + "From " + uGroups[comboBox4.SelectedIndex].GroupName;
+                   }
     }
 }

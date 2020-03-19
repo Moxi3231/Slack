@@ -32,5 +32,9 @@ namespace SlackService
         IEnumerable<UMessage> GetUMessages(UChannels channels);
         [OperationContract]
         bool AddUserToGroup(User user, UGroup group);
+        [OperationContract]
+        IEnumerable<User> getGroupMember(UGroup group);
+        [OperationContract]
+        bool removeUserFromGroup(User u, UGroup gr);
     }
 }

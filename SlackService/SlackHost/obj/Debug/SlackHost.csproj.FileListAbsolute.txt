@@ -1,5 +1,5 @@
-D:\Projects\Slack\SlackService\SlackHost\bin\Debug\App_Data\SlackDatabase.mdf
 D:\Projects\Slack\SlackService\SlackHost\bin\Debug\App_Data\SlackDatabase_log.ldf
+D:\Projects\Slack\SlackService\SlackHost\bin\Debug\App_Data\SlackDatabase.mdf
 D:\Projects\Slack\SlackService\SlackHost\bin\Debug\SlackHost.exe.config
 D:\Projects\Slack\SlackService\SlackHost\bin\Debug\SlackHost.exe
 D:\Projects\Slack\SlackService\SlackHost\bin\Debug\SlackHost.pdb

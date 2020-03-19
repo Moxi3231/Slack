@@ -566,10 +566,28 @@ namespace SlackClient.SlackService {
         System.Threading.Tasks.Task<SlackClient.SlackService.UChannels[]> GetUChannelsAsync(SlackClient.SlackService.UGroup g, SlackClient.SlackService.User u);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/GetUMessages", ReplyAction="http://tempuri.org/ISlackService/GetUMessagesResponse")]
-        SlackClient.SlackService.UMessage[] GetUMessages(SlackClient.SlackService.UChannels channels, SlackClient.SlackService.User user);
+        SlackClient.SlackService.UMessage[] GetUMessages(SlackClient.SlackService.UChannels channels);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/GetUMessages", ReplyAction="http://tempuri.org/ISlackService/GetUMessagesResponse")]
-        System.Threading.Tasks.Task<SlackClient.SlackService.UMessage[]> GetUMessagesAsync(SlackClient.SlackService.UChannels channels, SlackClient.SlackService.User user);
+        System.Threading.Tasks.Task<SlackClient.SlackService.UMessage[]> GetUMessagesAsync(SlackClient.SlackService.UChannels channels);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/AddUserToGroup", ReplyAction="http://tempuri.org/ISlackService/AddUserToGroupResponse")]
+        bool AddUserToGroup(SlackClient.SlackService.User user, SlackClient.SlackService.UGroup group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/AddUserToGroup", ReplyAction="http://tempuri.org/ISlackService/AddUserToGroupResponse")]
+        System.Threading.Tasks.Task<bool> AddUserToGroupAsync(SlackClient.SlackService.User user, SlackClient.SlackService.UGroup group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/getGroupMember", ReplyAction="http://tempuri.org/ISlackService/getGroupMemberResponse")]
+        SlackClient.SlackService.User[] getGroupMember(SlackClient.SlackService.UGroup group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/getGroupMember", ReplyAction="http://tempuri.org/ISlackService/getGroupMemberResponse")]
+        System.Threading.Tasks.Task<SlackClient.SlackService.User[]> getGroupMemberAsync(SlackClient.SlackService.UGroup group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/removeUserFromGroup", ReplyAction="http://tempuri.org/ISlackService/removeUserFromGroupResponse")]
+        bool removeUserFromGroup(SlackClient.SlackService.User u, SlackClient.SlackService.UGroup gr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISlackService/removeUserFromGroup", ReplyAction="http://tempuri.org/ISlackService/removeUserFromGroupResponse")]
+        System.Threading.Tasks.Task<bool> removeUserFromGroupAsync(SlackClient.SlackService.User u, SlackClient.SlackService.UGroup gr);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -663,12 +681,36 @@ namespace SlackClient.SlackService {
             return base.Channel.GetUChannelsAsync(g, u);
         }
         
-        public SlackClient.SlackService.UMessage[] GetUMessages(SlackClient.SlackService.UChannels channels, SlackClient.SlackService.User user) {
-            return base.Channel.GetUMessages(channels, user);
+        public SlackClient.SlackService.UMessage[] GetUMessages(SlackClient.SlackService.UChannels channels) {
+            return base.Channel.GetUMessages(channels);
         }
         
-        public System.Threading.Tasks.Task<SlackClient.SlackService.UMessage[]> GetUMessagesAsync(SlackClient.SlackService.UChannels channels, SlackClient.SlackService.User user) {
-            return base.Channel.GetUMessagesAsync(channels, user);
+        public System.Threading.Tasks.Task<SlackClient.SlackService.UMessage[]> GetUMessagesAsync(SlackClient.SlackService.UChannels channels) {
+            return base.Channel.GetUMessagesAsync(channels);
+        }
+        
+        public bool AddUserToGroup(SlackClient.SlackService.User user, SlackClient.SlackService.UGroup group) {
+            return base.Channel.AddUserToGroup(user, group);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddUserToGroupAsync(SlackClient.SlackService.User user, SlackClient.SlackService.UGroup group) {
+            return base.Channel.AddUserToGroupAsync(user, group);
+        }
+        
+        public SlackClient.SlackService.User[] getGroupMember(SlackClient.SlackService.UGroup group) {
+            return base.Channel.getGroupMember(group);
+        }
+        
+        public System.Threading.Tasks.Task<SlackClient.SlackService.User[]> getGroupMemberAsync(SlackClient.SlackService.UGroup group) {
+            return base.Channel.getGroupMemberAsync(group);
+        }
+        
+        public bool removeUserFromGroup(SlackClient.SlackService.User u, SlackClient.SlackService.UGroup gr) {
+            return base.Channel.removeUserFromGroup(u, gr);
+        }
+        
+        public System.Threading.Tasks.Task<bool> removeUserFromGroupAsync(SlackClient.SlackService.User u, SlackClient.SlackService.UGroup gr) {
+            return base.Channel.removeUserFromGroupAsync(u, gr);
         }
     }
 }
